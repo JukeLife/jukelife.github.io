@@ -1,0 +1,10 @@
+ErrorDocument 404 /404.html
+
+SetEnvIf User-Agent "archive.org_bot" denybot
+SetEnvIf User-Agent "ia_archiver" denybot
+SetEnvIf User-Agent "special_archiver" denybot
+
+<RequireAll>
+    Require all Granted
+    Require not env denybot
+</RequireAll>

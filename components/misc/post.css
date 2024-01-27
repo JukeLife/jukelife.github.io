@@ -1,0 +1,16 @@
+.postController {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.postController > * {
+    flex-grow: 1;
+}
+.postController > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: var(--input_margin);
+    padding: var(--input_padding);
+}

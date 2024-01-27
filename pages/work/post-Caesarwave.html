@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html lang="ja-jp">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <title>Caesarwave - JukeLife's Website</title>
+
+        <meta property="title" content="Caesarwave - JukeLife's Website" />
+        <meta property="description" content="シーザー暗号を基に文字列を高速で安全に暗号化・復号化するアルゴリズム" />
+        <meta property="keywords" content="" />
+        <meta property="author" content="JukeLife" />
+
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="shortcut" href="/favicon.ico" />
+
+        <meta property="og:site_name" content="JukeLife's Website" />
+        <meta property="og:url" content="" />
+        <meta property="og:title" content="Caesarwave - JukeLife's Website" />
+        <meta property="og:description" content="シーザー暗号を基に文字列を高速で安全に暗号化・復号化するアルゴリズム" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/assets/images/hero.jpg" />
+
+        <link rel="stylesheet" href="/components/common/global.css" />
+        <link rel="stylesheet" href="/components/common/page.css" />
+        <link rel="stylesheet" href="/components/common/document.css" />
+
+        <script type="text/javascript" id="MathJax-script" src="/components/plugins/MathJax/tex-chtml.js" async></script>
+    </head>
+
+    <body>
+        <header></header>
+
+        <main class="document">
+            <section>
+                <p>
+                    <code>2023年09月07日</code>
+                </p>
+
+                <h1 class="joinHeading">Caesarwave</h1>
+
+                <p>
+                    シーザー暗号を基に文字列を高速で安全に暗号化・復号化するアルゴリズム
+                </p>
+
+                <img src="/pages/work/post-Caesarwave/Caesar in Vaporwave (Caesarwave).jpg" />
+            </section>
+
+            <section>
+                <h2>暗号化する</h2>
+
+                <h3>入力</h3>
+
+                <fieldset>
+                    <textarea id="inputData" placeholder="データ（文字列）を入力"></textarea>
+                </fieldset>
+
+                <form class="line" onsubmit="generateEigenvalue(); return false;">
+                    <input id="inputEncryptKey" type="text" placeholder="共通鍵（文字列）を入力" />
+                    <button type="submit">暗号化</button>
+                </form>
+
+                <h3>結果</h3>
+
+                <fieldset>
+                    <textarea id="outputEigenvalue" placeholder="ここに固有値（16進数）が出力されます"></textarea>
+                </fieldset>
+            </section>
+
+            <section>
+                <h2>復号化する</h2>
+
+                <h3>入力</h3>
+
+                <fieldset>
+                    <textarea id="inputEigenvalue" placeholder="固有値（16進数）を入力"></textarea>
+                </fieldset>
+
+                <form class="line" onsubmit="decryptEigenvalue(); return false;">
+                    <input id="inputDecryptKey" type="text" placeholder="共通鍵（文字列）を入力" />
+                    <button type="submit">復号化</button>
+                </form>
+
+                <h3>結果</h3>
+
+                <fieldset>
+                    <textarea id="outputData" placeholder="ここにデータ（文字列）が出力されます"></textarea>
+                </fieldset>
+            </section>
+
+            <section>
+                <h2>アルゴリズム</h2>
+
+                <p>
+                    　とても簡易的ですが、SHA-256の原像計算困難性やXorshift128の周期に問題がなければ、総当たり以外の解読方法がないため安全だと思われます。
+                </p>
+
+                <figure>
+                    <img src="/pages/work/post-Caesarwave/F1.png" />
+                    <figcaption>Caesarwaveの簡易的な暗号化・復号化の手順</figcaption>
+                </figure>
+
+                <h3>暗号化の手順</h3>
+
+                <ol>
+                    <li>データ（UTF-8）をバイナリーに変換</li>
+                    <li>共通鍵をSHA-256でハッシュ</li>
+                    <li>Xorshift128のシードを共通鍵のハッシュ値としてデータに対応する長さの乱数（バイナリー）を生成</li>
+                    <li>データへ乱数を減算（半減算）したものを固有値として出力</li>
+                </ol>
+
+                <h3>復号化の手順</h3>
+
+                <ol>
+                    <li>共通鍵をSHA-256でハッシュ</li>
+                    <li>Xorshift128のシードを共通鍵のハッシュ値として固有値に対応する長さの乱数（バイナリー）を生成</li>
+                    <li>固有値と乱数を加算（半加算）したものをデータとして保持</li>
+                    <li>データ（バイナリー）をUTF-8に変換</li>
+                </ol>
+            </section>
+        </main>
+
+        <footer></footer>
+
+        <script type="text/javascript" src="/components/common/page.js"></script>
+        <script type="text/javascript" src="/components/functions/xorshift.js"></script>
+        <script type="text/javascript" src="/components/functions/Caesarwave.js"></script>
+
+        <script type="text/javascript">
+            const caesarwave = new Caesarwave();
+
+            async function generateEigenvalue() {
+                const data = document.getElementById('inputData').value;
+                const key = document.getElementById('inputEncryptKey').value;
+
+                const eigenvalue = await caesarwave.generateEigenvalue(data, key);
+
+                document.getElementById('outputEigenvalue').value = eigenvalue;
+            }
+
+            async function decryptEigenvalue() {
+                const eigenvalue = document.getElementById('inputEigenvalue').value;
+                const key = document.getElementById('inputDecryptKey').value;
+
+                const data = await caesarwave.decryptEigenvalue(eigenvalue, key);
+
+                document.getElementById('outputData').value = data;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="ja-jp">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <title>JukeLife's Website</title>
+
+        <meta property="title" content="JukeLife's Website" />
+        <meta property="description" content="" />
+        <meta property="keywords" content="" />
+        <meta property="author" content="JukeLife" />
+
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="shortcut" href="/favicon.ico" />
+
+        <meta property="og:site_name" content="JukeLife's Website" />
+        <meta property="og:url" content="" />
+        <meta property="og:title" content="JukeLife's Website" />
+        <meta property="og:description" content="" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/assets/images/hero.jpg" />
+
+        <link rel="stylesheet" href="/components/common/global.css" />
+        <link rel="stylesheet" href="/components/common/page.css" />
+        <link rel="stylesheet" href="/components/common/document.css" />
+
+        <script type="text/javascript" id="MathJax-script" src="/components/plugins/MathJax/tex-chtml.js" async></script>
+
+        <style type="text/css">
+            #notice > .link {
+                position: absolute;
+                justify-content: flex-end;
+                top: var(--block_padding);
+                right: var(--block_padding);
+                width: 100%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header></header>
+
+        <main class="document">
+            <section>
+                <h1>家屋</h1>
+
+                <p>
+                    　こんにちは、私はJukeLifeです。私はノベルやコードを書いたり、グラフィックに関連するコンテンツを作成するクリエイターです。私の成果を詳しく知りたい方は「<a href="/pages/work.html">WORK</a>」を、私の行動を詳しく知りたい方は「<a href="/pages/blog.html">BLOG</a>」を、個人情報の閲覧や交渉を希望する方は「<a href="/pages/info.html">INFO</a>」を閲覧してください。また、私の作品や情報を利用する場合は「<a href="/pages/term.html">TERM</a>」を確認してください。よろしくお願いします。
+                </p>
+            </section>
+
+            <section id="notice">
+                <div class="link tab top">
+                    <button disabled>前へ</button>
+                    <button disabled>次へ</button>
+                </div>
+
+                <h2 style="margin-top: 0;">お知らせ</h2>
+
+                <p class="data">
+                    JavaScriptを有効にしてください。
+                </p>
+            </section>
+
+            <section>
+                <h2>最近の呟き</h2>
+
+                <p>
+                    <code>2024年01月13日</code>
+                </p>
+
+                <p>
+                    　うちの子（Infillustion Brandのキャラクター）がラップトップで遊んでいるイラストを描いてみました。ここだけの話、うちの子で茶番動画とか作ってみたいですが…時間と気力が足りないので今は無理そうです。
+                </p>
+
+                <img src="/assets/favorite/2024.01.13/My Characters & My Computers (Alpha Background).png" />
+            </section>
+        </main>
+
+        <footer></footer>
+
+        <script type="text/javascript" src="/components/common/page.js"></script>
+        <script type="text/javascript" src="/components/misc/notice.js"></script>
+
+        <script type="text/javascript">
+            new Notice({
+                dataPath: '/assets/notice.json',
+                noticeDisplayDataNum: 5,
+                displayElement: document.getElementById('notice').getElementsByClassName('data')[0],
+                prevButtonElement: document.getElementById('notice').getElementsByTagName('button')[0],
+                nextButtonElement: document.getElementById('notice').getElementsByTagName('button')[1],
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="ja-jp">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <title>似非翻訳機 (Mistera Bruo) - JukeLife's Website</title>
+
+        <meta property="title" content="似非翻訳機 (Mistera Bruo) - JukeLife's Website" />
+        <meta property="description" content="それっぽいMistera Bruoを生成する翻訳機" />
+        <meta property="keywords" content="" />
+        <meta property="author" content="JukeLife" />
+
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="shortcut" href="/favicon.ico" />
+
+        <meta property="og:site_name" content="JukeLife's Website" />
+        <meta property="og:url" content="" />
+        <meta property="og:title" content="似非翻訳機 (Mistera Bruo) - JukeLife's Website" />
+        <meta property="og:description" content="それっぽいMistera Bruoを生成する翻訳機" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/assets/images/hero.jpg" />
+
+        <link rel="stylesheet" href="/components/common/global.css" />
+        <link rel="stylesheet" href="/components/common/page.css" />
+        <link rel="stylesheet" href="/components/common/document.css" />
+
+        <script type="text/javascript" id="MathJax-script" src="/components/plugins/MathJax/tex-chtml.js" async></script>
+    </head>
+
+    <style>
+        @font-face {
+            font-family: 'MisteraBruoNeo_P';
+            font-style: normal;
+            font-weight: normal;
+            src: url(/assets/fonts/MisteraBruo/MisteraBruoNeo_UsePrivateCharacter.woff);
+        }
+
+        @font-face {
+            font-family: 'MisteraBruoNeo_E';
+            font-style: normal;
+            font-weight: normal;
+            src: url(/assets/fonts/MisteraBruo/MisteraBruoNeo_UseEnglishCharacter.woff);
+        }
+
+        .MisteraBruoTextAreaA {
+            font-family: 'MisteraBruoNeo_P', 'SourceHanSansHW';
+            font-size: 66.66%;
+        }
+
+        .MisteraBruoTextAreaB {
+            font-family: 'MisteraBruoNeo_E', 'SourceHanSansHW';
+            font-size: 66.66%;
+        }
+    </style>
+
+    <body>
+        <header></header>
+
+        <main class="document">
+            <section>
+                <p>
+                    <code>2023年11月16日</code>
+                </p>
+
+                <h1 class="joinHeading">似非翻訳機 (Mistera Bruo)</h1>
+
+                <p>
+                    それっぽいMistera Bruoを生成する翻訳機
+                </p>
+
+                <img src="/assets/images/hero.jpg" />
+            </section>
+
+            <section id="panelA">
+                <h2>日本語からMistera Bruoに翻訳する</h2>
+
+                <h3>入力</h3>
+
+                <fieldset>
+                    <textarea id="inputTextA" placeholder="文章（日本語）を入力"></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <button onclick="translateJ2FMB()">翻訳</button>
+                </fieldset>
+
+                <h3>結果</h3>
+
+                <h4>文字 (Use Private Character)</h4>
+
+                <fieldset>
+                    <textarea id="outputTextA" class="MisteraBruoTextAreaA" placeholder="        "></textarea>
+                </fieldset>
+
+                <h4>文字 (Use English Character)</h4>
+
+                <fieldset>
+                    <textarea id="outputTextB" class="MisteraBruoTextAreaB" placeholder="DXY SNES # GQEDTA $ U \IPC TJ[ JDN"></textarea>
+                </fieldset>
+
+                <h4>発音 (英語)</h4>
+
+                <fieldset>
+                    <textarea id="outputPronunciationA" placeholder="ここに発音（Mistera Bruo）が出力されます"></textarea>
+                </fieldset>
+
+                <h4>発音 (カナ)</h4>
+
+                <fieldset>
+                    <textarea id="outputPronunciationB" placeholder="ここに発音（Mistera Bruo）が出力されます"></textarea>
+                </fieldset>
+            </section>
+
+            <!-- <section id="panelB">
+                <h2>英語からMistera Bruoに翻訳する</h2>
+
+                <h3>入力</h3>
+
+                <fieldset>
+                    <textarea id="inputTextB" placeholder="Enter the text (English) here"></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <button onclick="translateE2FMB()">翻訳</button>
+                </fieldset>
+
+                <h3>結果</h3>
+
+                <h4>文字 (Use Private Character)</h4>
+
+                <fieldset>
+                    <textarea id="outputTextC" class="MisteraBruoTextAreaA" placeholder="The text (Mistera Bruo) is output here"></textarea>
+                </fieldset>
+
+                <h4>文字 (Use English Character)</h4>
+
+                <fieldset>
+                    <textarea id="outputTextD" class="MisteraBruoTextAreaB" placeholder="The text (Mistera Bruo) is output here"></textarea>
+                </fieldset>
+
+                <h4>発音 (英語)</h4>
+
+                <fieldset>
+                    <textarea id="outputPronunciationC" placeholder="ここに発音（Mistera Bruo）が出力されます"></textarea>
+                </fieldset>
+
+                <h4>発音 (カナ)</h4>
+
+                <fieldset>
+                    <textarea id="outputPronunciationD" placeholder="ここに発音（Mistera Bruo）が出力されます"></textarea>
+                </fieldset>
+            </section> -->
+
+            <section id="bottomBanner">
+                <h2>使用ライブラリー</h2>
+
+                <ul>
+                    <li><a href="https://www.atilika.com/ja/kuromoji/" target="_blank" rel="noreferrer">Kuromoji</a></li>
+                </ul>
+            </section>
+        </main>
+
+        <footer></footer>
+
+        <script type="text/javascript" src="/components/common/page.js"></script>
+        <script type="text/javascript" src="/components/plugins/Kuromoji/kuromoji.js"></script>
+        <script type="text/javascript" src="/components/functions/xorshift.js"></script>
+        <script type="text/javascript" src="/components/functions/FakeMisteraBruoTranslator.js"></script>
+
+        <script type="text/javascript">
+            const panelElementA = document.getElementById('panelA');
+            const panelElementB = document.getElementById('panelB');
+
+            function disablePanel(element, disabled) {
+                ['input', 'button', 'textarea'].map((elementTagName) => {
+                    const elements = element.getElementsByTagName(elementTagName);
+
+                    if (elements) for (let i = 0; i < elements.length; i++) elements[i].disabled = disabled;
+                });
+            }
+
+            const fakeMisteraBruoTranslator = new FakeMisteraBruoTranslator();
+
+            function translateJ2FMB() {
+                disablePanel(panelElementA, true);
+
+                fakeMisteraBruoTranslator.translateJapaneseToFakeMisteraBruo([document.getElementById('inputTextA').value]).then((res) => {
+                    document.getElementById('outputTextA').value = res[0].textA;
+                    document.getElementById('outputTextB').value = res[0].textB;
+                    document.getElementById('outputPronunciationA').value = res[0].pronunciationA;
+                    document.getElementById('outputPronunciationB').value = res[0].pronunciationB;
+
+                    disablePanel(panelElementA, false);
+                });
+            }
+
+            function translateE2FMB() {
+                disablePanel(panelElementB, true);
+
+                fakeMisteraBruoTranslator.translateEnglishToFakeMisteraBruo([document.getElementById('inputTextB').value]).then((res) => {
+                    document.getElementById('outputTextC').value = res.textA;
+                    document.getElementById('outputTextD').value = res.textB;
+                    document.getElementById('outputPronunciationC').value = res.pronunciation;
+                    document.getElementById('outputPronunciationD').value = res.pronunciation;
+
+                    disablePanel(panelElementB, false);
+                });
+            }
+        </script>
+    </body>
+</html>

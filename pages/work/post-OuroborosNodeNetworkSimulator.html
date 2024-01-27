@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html lang="ja-jp">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <title>Ouroboros Node Network Simulator - JukeLife's Website</title>
+
+        <meta property="title" content="Ouroboros Node Network Simulator - JukeLife's Website" />
+        <meta property="description" content="Ouroboros Node Networkの性能を検証するシミュレーター" />
+        <meta property="keywords" content="" />
+        <meta property="author" content="JukeLife" />
+
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="shortcut" href="/favicon.ico" />
+
+        <meta property="og:site_name" content="JukeLife's Website" />
+        <meta property="og:url" content="" />
+        <meta property="og:title" content="Ouroboros Node Network Simulator - JukeLife's Website" />
+        <meta property="og:description" content="Ouroboros Node Networkの性能を検証するシミュレーター" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/assets/images/hero.jpg" />
+
+        <link rel="stylesheet" href="/components/common/global.css" />
+        <link rel="stylesheet" href="/components/common/page.css" />
+        <link rel="stylesheet" href="/components/common/document.css" />
+        <link rel="stylesheet" href="/pages/work/post-OuroborosNodeNetworkSimulator/style.css" />
+
+        <script type="text/javascript" id="MathJax-script" src="/components/plugins/MathJax/tex-chtml.js" async></script>
+    </head>
+
+    <body>
+        <header></header>
+
+        <main class="document">
+            <section id="topBanner">
+                <p>
+                    <code>2023年12月26日</code>
+                </p>
+
+                <h1 class="joinHeading">Ouroboros Node Network Simulator</h1>
+
+                <p>
+                    Ouroboros Node Networkの性能を検証するシミュレーター
+                </p>
+
+                <img src="/pages/work/post-OuroborosNodeNetwork/Neo Ouroboros (Ouroboros Node Network).jpg" class="topBannerImage" />
+            </section>
+
+            <section id="output">
+                <div class="tab top left">
+                    <button onclick="openInterface('output')">OPEN</button>
+                    <button onclick="closeInterface('output')">FOLD</button>
+                </div>
+
+                <h2>出力</h2>
+
+                <div id="outputBody" class="interface">
+                    <div class="code">
+                        <div class="codeType">ログ</div>
+                        <pre id="log" style="height: 320px"></pre>
+                    </div>
+
+                    <fieldset id="logFunction">
+                        <button onclick="saveLog()">保存</button>
+                    </fieldset>
+
+                    <div id="userList" class="list"></div>
+
+                    <fieldset id="userListFunction" class="hide">
+                        <button onclick="saveUserList()">保存</button>
+                    </fieldset>
+
+                    <div id="sendStoreList" class="list"></div>
+
+                    <fieldset id="sendStoreListFunction" class="hide">
+                        <button onclick="saveSendStoreList()">保存</button>
+                    </fieldset>
+
+                    <div id="getStoreList" class="list"></div>
+
+                    <fieldset id="getStoreListFunction" class="hide">
+                        <button onclick="saveGetStoreList()">保存</button>
+                    </fieldset>
+
+                    <div id="sendDataInfo" class="list"></div>
+
+                    <fieldset id="sendDataInfoFunction" class="hide">
+                        <button onclick="saveSendDataInfo()">保存</button>
+                    </fieldset>
+
+                    <canvas id="userNodeGraphic" class="graphic" width="1920" height="1080"></canvas>
+
+                    <fieldset id="userNodeGraphicFunction" class="hide">
+                        <button onclick="exeUserNodeGraphic('show')">表示</button>
+                        <button onclick="exeUserNodeGraphic('download')">保存</button>
+                    </fieldset>
+
+                    <canvas id="sendDataGraphic" class="graphic" width="1920" height="1080"></canvas>
+
+                    <fieldset id="sendDataGraphicFunction" class="hide">
+                        <button onclick="exeSendDataGraphic('show')">表示</button>
+                        <button onclick="exeSendDataGraphic('download')">保存</button>
+                    </fieldset>
+                </div>
+
+                <div class="tab bottom right">
+                    <button onclick="openInterface('output')">OPEN</button>
+                    <button onclick="closeInterface('output')">FOLD</button>
+                </div>
+            </section>
+
+            <section id="input">
+                <div class="tab top left">
+                    <button onclick="openInterface('input')">OPEN</button>
+                    <button onclick="closeInterface('input')">FOLD</button>
+                </div>
+
+                <h2>入力</h2>
+
+                <div id="inputBody" class="interface">
+                    <h3>1. ユーザーを生成</h3>
+
+                    <fieldset>
+                        <div class="label">ユーザー数</div>
+                        <input id="userNum" type="number" placeholder="人数" value="10" />
+                        <button onclick="createUsers()">生成</button>
+                        <button onclick="removeUsers()">無作為に削除</button>
+                        <button onclick="removeAllUser()">全て削除</button>
+                    </fieldset>
+
+                    <h3>2. ユーザーを操作</h3>
+
+                    <fieldset id="userSelector">
+                        <div class="label">ユーザー名</div>
+                        <input id="userName" type="text" placeholder="ユーザー名" disabled />
+                        <button onclick="setUser()" disabled>指定</button>
+                        <button onclick="removeUser()" disabled>削除</button>
+                    </fieldset>
+
+                    <hr />
+
+                    <div class="information userController">
+                        <div class="label">ユーザー名</div>
+                        <input id="setUserName" type="text" placeholder="ユーザー名" disabled />
+                        <button onclick="setUserName()" disabled>変更</button>
+                        <div></div>
+                        <div class="label">IPv4</div>
+                        <input id="setUserIPv4Address" type="text" placeholder="IPv4" disabled />
+                        <button onclick="setUserIPv4Address()" disabled>変更</button>
+                        <div></div>
+                        <div class="label">IPv6</div>
+                        <input id="setUserIPv6Address" type="text" placeholder="IPv6" disabled />
+                        <button onclick="setUserIPv6Address()" disabled>変更</button>
+                        <div></div>
+                        <div class="label">公開鍵</div>
+                        <input id="setPassPhrase" type="password" placeholder="パスフレーズ" disabled />
+                        <button onclick="setPassPhrase()" disabled>変更</button>
+                        <div></div>
+                    </div>
+
+                    <fieldset class="userController">
+                        <button onclick="removeAllSendStore()" disabled>送信オブジェクトを全て削除</button>
+                        <button onclick="removeAllGetStore()" disabled>受信オブジェクトを全て削除</button>
+                    </fieldset>
+
+                    <h3>3. マップを作成</h3>
+
+                    <fieldset class="userController">
+                        <div class="label">送信先指名</div>
+                        <input id="sendUserNameA" type="text" placeholder="送信先のユーザー名" disabled />
+                        <div class="label">ノードの数</div>
+                        <input id="pointNum" type="number" placeholder="個数" value="4" disabled />
+                        <button onclick="createSendStore()" disabled>生成</button>
+                    </fieldset>
+
+                    <h3>4. マップを操作</h3>
+
+                    <fieldset id="mapSelector">
+                        <div class="label">送信先指名</div>
+                        <input id="sendUserNameB" type="text" placeholder="送信先のユーザー名" disabled />
+                        <button onclick="setSendStore()" disabled>指定</button>
+                        <button onclick="asyncRunData()" disabled>送信</button>
+                        <button onclick="removeSendStore()" disabled>破棄</button>
+                    </fieldset>
+
+                    <hr />
+
+                    <fieldset class="mapController">
+                        <div class="label">送信データ</div>
+                        <textarea id="sendData" disabled></textarea>
+                        <button onclick="setSendData()" disabled>適合</button>
+                        <button onclick="clearSendData()" disabled>削除</button>
+                    </fieldset>
+
+                    <p>
+                        ※空のデータで接続を要求します。
+                    </p>
+                </div>
+
+                <div class="tab bottom right">
+                    <button onclick="openInterface('input')">OPEN</button>
+                    <button onclick="closeInterface('input')">FOLD</button>
+                </div>
+            </section>
+
+            <section id="bottomBanner">
+                <h2>使用ライブラリー</h2>
+
+                <ul>
+                    <li><a href="https://github.com/wwwtyro/cryptico" target="_blank" rel="noreferrer">cryptico</a></li>
+                    <li><a href="https://cryptojs.gitbook.io/docs/" target="_blank" rel="noreferrer">CryptoJS</a></li>
+                </ul>
+            </section>
+        </main>
+
+        <footer></footer>
+
+        <script type="text/javascript" src="/components/common/page.js"></script>
+        <script type="text/javascript" src="/components/plugins/cryptico/cryptico.min.js"></script>
+        <script type="text/javascript" src="/components/plugins/CryptoJS/core-min.js"></script>
+        <script type="text/javascript" src="/components/plugins/CryptoJS/cipher-core-min.js"></script>
+        <script type="text/javascript" src="/components/plugins/CryptoJS/aes-min.js"></script>
+        <script type="text/javascript" src="/components/plugins/CryptoJS/enc-base64-min.js"></script>
+        <script type="text/javascript" src="/components/plugins/CryptoJS/hmac-min.js"></script>
+        <script type="text/javascript" src="/components/plugins/CryptoJS/pbkdf2-min.js"></script>
+        <script type="text/javascript" src="/components/plugins/CryptoJS/sha256-min.js"></script>
+        <script type="text/javascript" src="/components/functions/OuroborosNode.js"></script>
+        <script type="text/javascript" src="/components/functions/OuroborosNodeNetwork.js"></script>
+        <script type="text/javascript" src="/pages/work/post-OuroborosNodeNetworkSimulator/script.js"></script>
+    </body>
+</html>

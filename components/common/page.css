@@ -1,0 +1,46 @@
+header.block.flex {
+    user-select: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+header > .brand {
+    width: 120px;
+    height: auto;
+    margin-right: var(--item_margin);
+    object-fit: cover;
+}
+
+header > .splash {
+    flex-grow: 2;
+    margin-top: var(--item_margin);
+    font-weight: bold;
+}
+
+header > .link {
+    justify-content: flex-end;
+    flex-grow: 1;
+    margin-top: var(--item_margin);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+footer.block.flex {
+    user-select: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+footer > .link {
+    justify-content: flex-start;
+    flex-grow: 1;
+    margin-bottom: var(--item_margin);
+}

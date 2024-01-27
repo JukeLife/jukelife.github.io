@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="ja-jp">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <title>JavaScriptで重い処理を描画が固まらないように非同期で実行する方法 - JukeLife's Website</title>
+
+        <meta property="title" content="JavaScriptで重い処理を描画が固まらないように非同期で実行する方法 - JukeLife's Website" />
+        <meta property="description" content="処理が終了するまで表示を更新できない問題とsetTimeout関数の利用による解決" />
+        <meta property="keywords" content="" />
+        <meta property="author" content="JukeLife" />
+
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="shortcut" href="/favicon.ico" />
+
+        <meta property="og:site_name" content="JukeLife's Website" />
+        <meta property="og:url" content="" />
+        <meta property="og:title" content="JavaScriptで重い処理を描画が固まらないように非同期で実行する方法 - JukeLife's Website" />
+        <meta property="og:description" content="処理が終了するまで表示を更新できない問題とsetTimeout関数の利用による解決" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/assets/images/hero.jpg" />
+
+        <link rel="stylesheet" href="/components/common/global.css" />
+        <link rel="stylesheet" href="/components/common/page.css" />
+        <link rel="stylesheet" href="/components/common/document.css" />
+
+        <script type="text/javascript" id="MathJax-script" src="/components/plugins/MathJax/tex-chtml.js" async></script>
+    </head>
+
+    <body>
+        <header></header>
+
+        <main class="document">
+            <section>
+                <p>
+                    <code>2023年10月16日</code>
+                </p>
+
+                <h1 class="joinHeading">JavaScriptで重い処理を描画が固まらないように非同期で実行する方法</h1>
+
+                <p>
+                    処理が終了するまで表示を更新できない問題とsetTimeout関数の利用による解決
+                </p>
+            </section>
+
+            <section>
+                <h2>処理が終了するまで表示を更新できない問題</h2>
+
+                <p>
+                    　重い処理の一例として、<a href="https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%A9%E3%83%83%E3%83%84%E3%81%AE%E5%95%8F%E9%A1%8C" target="_blank" rel="noreferrer">コラッツの問題</a>について1から1,000,000までの初期値を順々に計算するとき、それを10回のステップ（100,000回 × 10回）に分けて処理を行い、ステップごとに計算回数をログで出力したい場合を想定します。この時、1回分のステップを処理する関数とログを出力する関数をfor文で回すと、HTML上では全ての処理が終了した（＝呼び出された関数の処理が終了した）タイミングで表示が更新されるため、その間はユーザーが何も操作できず、進行状況も分からないという状況が発生します。
+                </p>
+
+                <div class="code">
+                    <div class="codeType">ログ</div>
+                    <pre id="testFunctionLogA" style="height: 320px"></pre>
+                </div>
+
+                <div class="code">
+                    <div class="codeType">スクリプト</div>
+                    <pre>function testFunction() {
+    for (let i = 1; i <= 10; i++) {
+        const res = heavyFunction(i);
+
+        pushLog(`ステップ${paddingZero(i, 2)} … 合計${res}回の計算を行いました。`);
+    }
+}</pre>
+                </div>
+
+                <fieldset>
+                    <button onclick="testFunctionA()">実行</button>
+                </fieldset>
+            </section>
+
+            <section>
+                <h2>setTimeout関数の利用による解決</h2>
+
+                <p>
+                    　この問題は、<a href="https://developer.mozilla.org/ja/docs/Web/API/setTimeout" target="_blank" rel="noreferrer">setTimeout関数</a>を利用することで解決できます。setTimeout関数は非同期関数であり、呼び出し元は処理を待たずに次の命令へ進むため、これを連続して実行することで内部に記述された命令は全ての処理が終了する前に実行されます。ただし、無限ループを防ぐためにsetTimeout関数はインクリメントされる変数などで制御する必要があります。
+                </p>
+
+                <div class="code">
+                    <div class="codeType">ログ</div>
+                    <pre id="testFunctionLogB" style="height: 320px"></pre>
+                </div>
+
+                <div class="code">
+                    <div class="codeType">スクリプト</div>
+                    <pre>function testFunction(i = 1) {
+    if (i <= 10) {
+        setTimeout(() => {
+            const res = heavyFunction(i);
+
+            pushLog(`ステップ${paddingZero(i, 2)} … 合計${res}回の計算を行いました。`);
+
+            testFunction(++i);
+        }, 0);
+    }
+}</pre>
+                </div>
+
+                <fieldset>
+                    <button onclick="testFunctionB()">実行</button>
+                </fieldset>
+            </section>
+        </main>
+
+        <footer></footer>
+
+        <script type="text/javascript" src="/components/common/page.js"></script>
+        <script type="text/javascript" src="/pages/blog/post-0001.js"></script>
+    </body>
+</html>

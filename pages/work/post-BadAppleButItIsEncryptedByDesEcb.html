@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="ja-jp">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <title>Bad Apple!! but It is Encrypted by DES-ECB - JukeLife's Website</title>
+
+        <meta property="title" content="Bad Apple!! but It is Encrypted by DES-ECB - JukeLife's Website" />
+        <meta property="description" content="Bad Apple!!の映像をDES-ECBで暗号化した動画" />
+        <meta property="keywords" content="" />
+        <meta property="author" content="JukeLife" />
+
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="shortcut" href="/favicon.ico" />
+
+        <meta property="og:site_name" content="JukeLife's Website" />
+        <meta property="og:url" content="" />
+        <meta property="og:title" content="Bad Apple!! but It is Encrypted by DES-ECB - JukeLife's Website" />
+        <meta property="og:description" content="Bad Apple!!の映像をDES-ECBで暗号化した動画" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/assets/images/hero.jpg" />
+
+        <link rel="stylesheet" href="/components/common/global.css" />
+        <link rel="stylesheet" href="/components/common/page.css" />
+        <link rel="stylesheet" href="/components/common/document.css" />
+
+        <script type="text/javascript" id="MathJax-script" src="/components/plugins/MathJax/tex-chtml.js" async></script>
+    </head>
+
+    <body>
+        <header></header>
+
+        <main class="document">
+            <section>
+                <p>
+                    <code>2023年12月31日</code>
+                </p>
+
+                <h1 class="joinHeading">Bad Apple!! but It is Encrypted by DES-ECB</h1>
+
+                <p>
+                    Bad Apple!!の映像をDES-ECBで暗号化した動画
+                </p>
+
+                <div class="frame">
+                    <iframe src="https://www.youtube.com/embed/Zn_rOM26_5s" style="border: 0;" allowfullscreen="" loading="lazy" width="100%" height="100%"></iframe>
+                </div>
+            </section>
+
+            <section>
+                <h2>リンク</h2>
+
+                <h3>コンテンツ</h3>
+
+                <ul>
+                    <li><a href="https://youtu.be/Zn_rOM26_5s" target="_blank" rel="noreferrer">動画（YouTube）を視聴する</a></li>
+                </ul>
+
+                <h3>配布素材</h3>
+
+                <ul>
+                    <li><a href="https://drive.google.com/file/d/157IFmRXemlrnRPUF27zNPIuHNgN37jSb/view?usp=sharing" target="_blank" rel="noreferrer">作品で使用されたプログラム「DES Visualizer」（Google Drive）を入手する</a></li>
+                    <li><a href="https://drive.google.com/file/d/1X30MP3M25osQQCDeaEiUWSF7PyR8o-GB/view?usp=sharing" target="_blank" rel="noreferrer">作品で使用されたプログラム「DES Cryptor」（Google Drive）を入手する</a></li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>TIP</h2>
+
+                <p>
+                    　Bashが利用できる場合、<code>xargs</code>コマンドを使用すると複数のスレッドを用いて効率的に処理できます。
+                </p>
+
+                <div class="code">
+                    <div class="codeType">Bash</div>
+                    <pre>$ find "<span class="yellow_tc">&lt;入力フォルダー&gt;</span>" -name "*.<span class="yellow_tc">&lt;拡張子&gt;</span>" | sed 's!^.*/!!' | xargs -P <span class="yellow_tc">&lt;スレッド数&gt;</span> -i java -jar DES_Visualizer.jar "<span class="yellow_tc">&lt;入力フォルダー&gt;</span>/{}" "<span class="yellow_tc">&lt;出力フォルダー&gt;</span>/{}" -1 -1 128 "ECB" "BADAPPLE"</pre>
+                </div>
+            </section>
+        </main>
+
+        <footer></footer>
+
+        <script type="text/javascript" src="/components/common/page.js"></script>
+    </body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="ja-jp">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <title>作品 - JukeLife's Website</title>
+
+        <meta property="title" content="作品 - JukeLife's Website" />
+        <meta property="description" content="" />
+        <meta property="keywords" content="" />
+        <meta property="author" content="JukeLife" />
+
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="shortcut" href="/favicon.ico" />
+
+        <meta property="og:site_name" content="JukeLife's Website" />
+        <meta property="og:url" content="" />
+        <meta property="og:title" content="作品 - JukeLife's Website" />
+        <meta property="og:description" content="" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/assets/images/hero.jpg" />
+
+        <link rel="stylesheet" href="/components/common/global.css" />
+        <link rel="stylesheet" href="/components/common/page.css" />
+        <link rel="stylesheet" href="/components/common/document.css" />
+        <link rel="stylesheet" href="/components/misc/post.css" />
+
+        <script type="text/javascript" id="MathJax-script" src="/components/plugins/MathJax/tex-chtml.js" async></script>
+    </head>
+
+    <body>
+        <header></header>
+
+        <main class="document" style="flex-grow: 0;">
+            <section>
+                <h1>作品</h1>
+
+                <p>
+                    　これは、私が制作した作品を記したページです。
+                </p>
+            </section>
+
+            <section>
+                <fieldset class="postController">
+                    <button disabled>最初へ</button>
+                    <button disabled>前頁へ</button>
+                    <div>0 / 0</div>
+                    <button disabled>次頁へ</button>
+                    <button disabled>最後へ</button>
+                </fieldset>
+            </section>
+        </main>
+
+        <main class="document" style="flex-grow: 1;"></main>
+
+        <main class="document" style="flex-grow: 0;">
+            <section>
+                <fieldset class="postController">
+                    <button disabled>最初へ</button>
+                    <button disabled>前頁へ</button>
+                    <div>0 / 0</div>
+                    <button disabled>次頁へ</button>
+                    <button disabled>最後へ</button>
+                </fieldset>
+            </section>
+        </main>
+
+        <footer></footer>
+
+        <script type="text/javascript" src="/components/common/page.js"></script>
+        <script type="text/javascript" src="/components/misc/post.js"></script>
+
+        <script type="text/javascript">
+            new Post({
+                dataPath: '/pages/work.json',
+                postDisplayDataNum: 10,
+                containerElement: document.getElementsByTagName('main')[1],
+                pageElement: [
+                    document.getElementsByClassName('postController')[0].getElementsByTagName('div')[0],
+                    document.getElementsByClassName('postController')[1].getElementsByTagName('div')[0],
+                ],
+                initButtonElement: [
+                    document.getElementsByClassName('postController')[0].getElementsByTagName('button')[0],
+                    document.getElementsByClassName('postController')[1].getElementsByTagName('button')[0],
+                ],
+                prevButtonElement: [
+                    document.getElementsByClassName('postController')[0].getElementsByTagName('button')[1],
+                    document.getElementsByClassName('postController')[1].getElementsByTagName('button')[1],
+                ],
+                nextButtonElement: [
+                    document.getElementsByClassName('postController')[0].getElementsByTagName('button')[2],
+                    document.getElementsByClassName('postController')[1].getElementsByTagName('button')[2],
+                ],
+                lastButtonElement: [
+                    document.getElementsByClassName('postController')[0].getElementsByTagName('button')[3],
+                    document.getElementsByClassName('postController')[1].getElementsByTagName('button')[3],
+                ],
+            });
+        </script>
+    </body>
+</html>

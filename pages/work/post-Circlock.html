@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="ja-jp">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <title>Circlock - JukeLife's Website</title>
+
+        <meta property="title" content="Circlock - JukeLife's Website" />
+        <meta property="description" content="現代的・個性的なデザインの時計" />
+        <meta property="keywords" content="" />
+        <meta property="author" content="JukeLife" />
+
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="shortcut" href="/favicon.ico" />
+
+        <meta property="og:site_name" content="JukeLife's Website" />
+        <meta property="og:url" content="" />
+        <meta property="og:title" content="Circlock - JukeLife's Website" />
+        <meta property="og:description" content="現代的・個性的なデザインの時計" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/assets/images/hero.jpg" />
+
+        <link rel="stylesheet" href="/components/common/global.css" />
+        <link rel="stylesheet" href="/components/common/page.css" />
+        <link rel="stylesheet" href="/components/common/document.css" />
+
+        <script type="text/javascript" id="MathJax-script" src="/components/plugins/MathJax/tex-chtml.js" async></script>
+    </head>
+
+    <body>
+        <header></header>
+
+        <main class="document">
+            <section>
+                <p>
+                    <code>2023年10月27日</code>
+                </p>
+
+                <h1 class="joinHeading">Circlock</h1>
+
+                <p>
+                    現代的・個性的なデザインの時計
+                </p>
+
+                <img src="/pages/work/post-Circlock/hero.png" />
+            </section>
+
+            <section>
+                <h2>リンク</h2>
+
+                <form class="line" onsubmit="movePage(); return false;">
+                    <div class="label">横幅 (px)</div>
+                    <input id="width" type="number" placeholder="数値" value="768" />
+                    <div class="label">縦幅 (px)</div>
+                    <input id="height" type="number" placeholder="数値" value="768" />
+                    <button type="submit">表示</button>
+                </form>
+            </section>
+        </main>
+
+        <footer></footer>
+
+        <script type="text/javascript" src="/components/common/page.js"></script>
+
+        <script type="text/javascript">
+            function movePage() {
+                const width = document.getElementById('width').value;
+                const height = document.getElementById('height').value;
+
+                const page = `/pages/work/post-Circlock/index.html?width=${width ? width : 768}&height=${height ? height : 768}`;
+
+                location.href = page;
+            }
+        </script>
+    </body>
+</html>

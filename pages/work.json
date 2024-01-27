@@ -1,0 +1,66 @@
+[
+    {
+        "update": [2024, 1, 8],
+        "date": [2024, 1, 2],
+        "link": "/pages/work/post-Revosophy.html",
+        "title": "科学と哲学の間",
+        "summary": "自身の曖昧な理論を纏めた記事",
+        "image": "/pages/work/post-Revosophy/Revosophy.jpg"
+    },
+    {
+        "update": [2023, 12, 31],
+        "date": [2023, 12, 31],
+        "link": "/pages/work/post-BadAppleButItIsEncryptedByDesEcb.html",
+        "title": "Bad Apple!! but It is Encrypted by DES-ECB",
+        "summary": "Bad Apple!!の映像をDES-ECBで暗号化した動画",
+        "image": "/pages/work/post-BadAppleButItIsEncryptedByDesEcb/Thumbnail.jpg"
+    },
+    {
+        "update": [2023, 12, 26],
+        "date": [2023, 12, 11],
+        "link": "/pages/work/post-OuroborosNodeNetwork.html",
+        "title": "Ouroboros Node Network",
+        "summary": "末端を持たない環状ネットワークの考案・検証について",
+        "image": "/pages/work/post-OuroborosNodeNetwork/Neo Ouroboros (Ouroboros Node Network).jpg"
+    },
+    {
+        "update": [2023, 11, 26],
+        "date": [2023, 11, 26],
+        "link": "https://youtu.be/OmRz5-4loxE",
+        "title": "【Blender 3】 How to Make: 巨大なチェス盤 【ゆっくり解説】",
+        "summary": "ジオメトリーノードの使用例を淡々と解説する動画",
+        "image": "/pages/work/post-HowToMakeGiantChessBoardForBlender/Thumbnail.jpg"
+    },
+    {
+        "update": [2023, 11, 20],
+        "date": [2023, 11, 20],
+        "link": "/pages/work/post-MinecraftSairorawgaWunbonwufbo.html",
+        "title": "【Minecraft】 無計画な実況 Part 1 【ゆっくり実況】",
+        "summary": "NiivのMistera Bruoによるゲーム実況",
+        "image": "/pages/work/post-MinecraftSairorawgaWunbonwufbo/Thumbnail.jpg"
+    },
+    {
+        "update": [2023, 10, 27],
+        "date": [2023, 10, 27],
+        "link": "/pages/work/post-Circlock.html",
+        "title": "Circlock",
+        "summary": "現代的・個性的なデザインの時計",
+        "image": "/pages/work/post-Circlock/hero.png"
+    },
+    {
+        "update": [2023, 12, 10],
+        "date": [2023, 9, 10],
+        "link": "/pages/work/post-CosmicRepeatProverbs_Early.html",
+        "title": "Cosmic Repeat Proverbs (早期公開)",
+        "summary": "2つの地球を舞台に科学と魔法が衝突する物語を描いた小説",
+        "image": "/pages/work/post-CosmicRepeatProverbs/Cosmic Repeat Proverbs Title Graphic (Final) (UHD).jpg"
+    },
+    {
+        "update": [2023, 9, 7],
+        "date": [2023, 9, 7],
+        "link": "/pages/work/post-Caesarwave.html",
+        "title": "Caesarwave",
+        "summary": "シーザー暗号を基に文字列を高速で安全に暗号化・復号化するアルゴリズム",
+        "image": "/pages/work/post-Caesarwave/Caesar in Vaporwave (Caesarwave).jpg"
+    }
+]

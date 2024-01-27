@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="ja-jp">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <title>Circlock - JukeLife's Website</title>
+
+        <meta property="title" content="Circlock - JukeLife's Website" />
+        <meta property="description" content="現代的・個性的なデザインの時計" />
+        <meta property="keywords" content="" />
+        <meta property="author" content="JukeLife" />
+
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="shortcut" href="/favicon.ico" />
+
+        <meta property="og:site_name" content="JukeLife's Website" />
+        <meta property="og:url" content="" />
+        <meta property="og:title" content="Circlock - JukeLife's Website" />
+        <meta property="og:description" content="現代的・個性的なデザインの時計" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/assets/images/hero.jpg" />
+    </head>
+
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+    <body>
+        <canvas id="clock" width="768" height="768"></canvas>
+
+        <script type="text/javascript" src="./script.js"></script>
+
+        <script type="text/javascript">
+            const searchParams = new URLSearchParams(window.location.search);
+
+            let customWidth = parseInt(searchParams.get('width'));
+            let customHeight = parseInt(searchParams.get('height'));
+
+            if (!customWidth && !customHeight) {
+                customWidth = 768;
+                customHeight = 768;
+            } else {
+                if (!customWidth) customWidth = customHeight;
+
+                if (!customHeight) customHeight = customWidth;
+            }
+
+            const clockElement = document.getElementById('clock');
+
+            clockElement.width = customWidth;
+            clockElement.height = customHeight;
+
+            const circlock = new Circlock(clockElement, {
+                canvasWidth: customWidth,
+                canvasHeight: customHeight,
+                colorHueStart: 0,
+                colorHueEnd: 0.25,
+                topColor: 'hsl(<hue>, 100%, 75%, 100%)',
+                bodyColor: 'hsl(<hue>, 50%, 25%, 100%)',
+                backgroundColor: 'hsl(<hue>, 25%, 50%, 25%)',
+            });
+
+            setInterval(() => {
+                circlock.update();
+                circlock.draw();
+            }, 10);
+        </script>
+    </body>
+</html>

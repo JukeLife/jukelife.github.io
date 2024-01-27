@@ -1,0 +1,242 @@
+const countryData = [
+    { name: 'アゼルバイジャン', capital: 'バクー', region: ['アジア', 'ヨーロッパ'] },
+    { name: 'アフガニスタン', capital: 'カブール', region: ['アジア'] },
+    { name: 'アラブ首長国連邦', capital: 'アブダビ', region: ['アジア'] },
+    { name: 'アルメニア', capital: 'エレバン', region: ['アジア', 'ヨーロッパ'] },
+    { name: 'イエメン', capital: 'サヌア', region: ['アジア', 'アフリカ'] },
+    { name: 'イスラエル', capital: 'エルサレム', region: ['アジア', 'ヨーロッパ'] },
+    { name: 'イラク', capital: 'バグダッド', region: ['アジア'] },
+    { name: 'イラン', capital: 'テヘラン', region: ['アジア'] },
+    { name: 'インド', capital: 'ニューデリー', region: ['アジア'] },
+    { name: 'インドネシア', capital: 'ジャカルタ', region: ['アジア', 'オセアニア'] },
+    { name: 'ウズベキスタン', capital: 'タシケント', region: ['アジア'] },
+    { name: 'オマーン', capital: 'マスカット', region: ['アジア'] },
+    { name: 'カザフスタン', capital: 'アスタナ', region: ['アジア', 'ヨーロッパ'] },
+    { name: 'カタール', capital: 'ドーハ', region: ['アジア'] },
+    { name: '韓国', capital: 'ソウル', region: ['アジア'] },
+    { name: 'カンボジア', capital: 'プノンペン', region: ['アジア'] },
+    { name: '北朝鮮', capital: '平壌', region: ['アジア'] },
+    { name: 'キプロス', capital: 'ニコシア', region: ['アジア', 'ヨーロッパ'] },
+    { name: 'キルギス', capital: 'ビシュケク', region: ['アジア'] },
+    { name: 'クウェート', capital: 'クウェート', region: ['アジア'] },
+    { name: 'サウジアラビア', capital: 'リヤド', region: ['アジア'] },
+    { name: 'ジョージア', capital: 'トビリシ', region: ['アジア', 'ヨーロッパ'] },
+    { name: 'シリア', capital: 'ダマスカス', region: ['アジア'] },
+    { name: 'シンガポール', capital: 'シンガポール', region: ['アジア'] },
+    { name: 'スリランカ', capital: 'スリジャヤワルダナプラコッテ', region: ['アジア'] },
+    { name: 'タイ', capital: 'バンコク', region: ['アジア'] },
+    { name: 'タジキスタン', capital: 'ドゥシャンベ', region: ['アジア'] },
+    { name: '中華人民共和国', capital: '北京', region: ['アジア'] },
+    { name: '中華民国', capital: '台北', region: ['アジア'] },
+    { name: 'トルクメニスタン', capital: 'アシガバート', region: ['アジア'] },
+    { name: 'トルコ', capital: 'アンカラ', region: ['アジア', 'ヨーロッパ'] },
+    { name: '日本', capital: '東京', region: ['アジア', 'オセアニア'] },
+    { name: 'ネパール', capital: 'カトマンズ', region: ['アジア'] },
+    { name: 'バーレーン', capital: 'マナーマ', region: ['アジア'] },
+    { name: 'パキスタン', capital: 'イスラマバード', region: ['アジア'] },
+    { name: 'バングラデシュ', capital: 'ダッカ', region: ['アジア'] },
+    { name: '東ティモール', capital: 'ディリ', region: ['アジア'] },
+    { name: 'フィリピン', capital: 'マニラ', region: ['アジア', 'オセアニア'] },
+    { name: 'ブータン', capital: 'ティンプー', region: ['アジア'] },
+    { name: 'ブルネイ', capital: 'バンダルスリブガワン', region: ['アジア'] },
+    { name: 'ベトナム', capital: 'ハノイ', region: ['アジア'] },
+    { name: 'マレーシア', capital: 'クアラルンプール', region: ['アジア'] },
+    { name: 'ミャンマー', capital: 'ネーピードー', region: ['アジア'] },
+    { name: 'モルディブ', capital: 'マレ', region: ['アジア'] },
+    { name: 'モンゴル', capital: 'ウランバートル', region: ['アジア'] },
+    { name: 'ヨルダン', capital: 'アンマン', region: ['アジア'] },
+    { name: 'ラオス', capital: 'ヴィエンチャン', region: ['アジア'] },
+    { name: 'レバノン', capital: 'ベイルート', region: ['アジア'] },
+    { name: 'アルジェリア', capital: 'アルジェ', region: ['アフリカ'] },
+    { name: 'アンゴラ', capital: 'ルアンダ', region: ['アフリカ'] },
+    { name: 'ウガンダ', capital: 'カンパラ', region: ['アフリカ'] },
+    { name: 'エジプト', capital: 'カイロ', region: ['アフリカ'] },
+    { name: 'エスワティニ', capital: 'ムババーネ', region: ['アフリカ'] },
+    { name: 'エチオピア', capital: 'アディスアベバ', region: ['アフリカ'] },
+    { name: 'エリトリア', capital: 'アスマラ', region: ['アフリカ'] },
+    { name: 'ガーナ', capital: 'アクラ', region: ['アフリカ'] },
+    { name: 'カーボベルデ', capital: 'プライア', region: ['アフリカ'] },
+    { name: 'ガボン', capital: 'リーブルヴィル', region: ['アフリカ'] },
+    { name: 'カメルーン', capital: 'ヤウンデ', region: ['アフリカ'] },
+    { name: 'ガンビア', capital: 'バンジュール', region: ['アフリカ'] },
+    { name: 'ギニア', capital: 'コナクリ', region: ['アフリカ'] },
+    { name: 'ギニアビサウ', capital: 'ビサウ', region: ['アフリカ'] },
+    { name: 'ケニア', capital: 'ナイロビ', region: ['アフリカ'] },
+    { name: 'コートジボワール', capital: 'ヤムスクロ', region: ['アフリカ'] },
+    { name: 'コモロ連合', capital: 'モロニ', region: ['アフリカ'] },
+    { name: 'コンゴ共和国', capital: 'ブラザヴィル', region: ['アフリカ'] },
+    { name: 'コンゴ民主共和国', capital: 'キンシャサ', region: ['アフリカ'] },
+    { name: 'サントメ・プリンシペ', capital: 'サントメ', region: ['アフリカ'] },
+    { name: 'ザンビア', capital: 'ルサカ', region: ['アフリカ'] },
+    { name: 'シエラレオネ', capital: 'フリータウン', region: ['アフリカ'] },
+    { name: 'ジブチ', capital: 'ジブチ', region: ['アフリカ'] },
+    { name: 'ジンバブエ', capital: 'ハラレ', region: ['アフリカ'] },
+    { name: 'スーダン', capital: 'ハルツーム', region: ['アフリカ'] },
+    { name: 'セーシェル', capital: 'ビクトリア', region: ['アフリカ'] },
+    { name: '赤道ギニア', capital: 'マラボ', region: ['アフリカ'] },
+    { name: 'セネガル', capital: 'ダカール', region: ['アフリカ'] },
+    { name: 'ソマリア', capital: 'モガディシオ', region: ['アフリカ'] },
+    { name: 'タンザニア', capital: 'ドドマ', region: ['アフリカ'] },
+    { name: 'チャド', capital: 'ンジャメナ', region: ['アフリカ'] },
+    { name: '中央アフリカ', capital: 'バンギ', region: ['アフリカ'] },
+    { name: 'チュニジア', capital: 'チュニス', region: ['アフリカ'] },
+    { name: 'トーゴ', capital: 'ロメ', region: ['アフリカ'] },
+    { name: 'ナイジェリア', capital: 'アブジャ', region: ['アフリカ'] },
+    { name: 'ナミビア', capital: 'ウィントフック', region: ['アフリカ'] },
+    { name: 'ニジェール', capital: 'ニアメ', region: ['アフリカ'] },
+    { name: 'ブルキナファソ', capital: 'ワガドゥグー', region: ['アフリカ'] },
+    { name: 'ブルンジ', capital: 'ブジュンブラ', region: ['アフリカ'] },
+    { name: 'ベナン', capital: 'ポルトノボ', region: ['アフリカ'] },
+    { name: 'ボツワナ', capital: 'ハボローネ', region: ['アフリカ'] },
+    { name: 'マダガスカル', capital: 'アンタナナリボ', region: ['アフリカ'] },
+    { name: 'マラウイ', capital: 'リロングウェ', region: ['アフリカ'] },
+    { name: 'マリ', capital: 'バマコ', region: ['アフリカ'] },
+    { name: '南アフリカ共和国', capital: 'プレトリア', region: ['アフリカ'] },
+    { name: '南スーダン', capital: 'ジュバ', region: ['アフリカ'] },
+    { name: 'モーリシャス', capital: 'ポートルイス', region: ['アフリカ'] },
+    { name: 'モーリタニア', capital: 'ヌアクショット', region: ['アフリカ'] },
+    { name: 'モザンビーク', capital: 'マプト', region: ['アフリカ'] },
+    { name: 'モロッコ', capital: 'ラバト', region: ['アフリカ'] },
+    { name: 'リビア', capital: 'トリポリ', region: ['アフリカ'] },
+    { name: 'リベリア', capital: 'モンロビア', region: ['アフリカ'] },
+    { name: 'ルワンダ', capital: 'キガリ', region: ['アフリカ'] },
+    { name: 'レソト', capital: 'マセル', region: ['アフリカ'] },
+    { name: 'アイスランド', capital: 'レイキャヴィーク', region: ['ヨーロッパ'] },
+    { name: 'アイルランド', capital: 'ダブリン', region: ['ヨーロッパ'] },
+    { name: 'アルバニア', capital: 'ティラナ', region: ['ヨーロッパ'] },
+    { name: 'アンドラ', capital: 'アンドララベリャ', region: ['ヨーロッパ'] },
+    { name: 'イギリス', capital: 'ロンドン', region: ['ヨーロッパ'] },
+    { name: 'イタリア', capital: 'ローマ', region: ['ヨーロッパ', 'アフリカ'] },
+    { name: 'ウクライナ', capital: 'キーウ（キエフ）', region: ['ヨーロッパ'] },
+    { name: 'エストニア', capital: 'タリン', region: ['ヨーロッパ'] },
+    { name: 'オーストリア', capital: 'ウィーン', region: ['ヨーロッパ'] },
+    { name: 'オランダ', capital: 'アムステルダム', region: ['ヨーロッパ', '北アメリカ'] },
+    { name: 'ギリシャ', capital: 'アテネ', region: ['ヨーロッパ'] },
+    { name: 'クロアチア', capital: 'ザグレブ', region: ['ヨーロッパ'] },
+    { name: 'サンマリノ', capital: 'サンマリノ', region: ['ヨーロッパ'] },
+    { name: 'スイス', capital: 'ベルン', region: ['ヨーロッパ'] },
+    { name: 'スウェーデン', capital: 'ストックホルム', region: ['ヨーロッパ'] },
+    { name: 'スペイン', capital: 'マドリード', region: ['ヨーロッパ', 'アフリカ'] },
+    { name: 'スロバキア', capital: 'ブラチスラバ', region: ['ヨーロッパ'] },
+    { name: 'スロベニア', capital: 'リュブリャナ', region: ['ヨーロッパ'] },
+    { name: 'セルビア', capital: 'ベオグラード', region: ['ヨーロッパ'] },
+    { name: 'チェコ', capital: 'プラハ', region: ['ヨーロッパ'] },
+    { name: 'デンマーク', capital: 'コペンハーゲン', region: ['ヨーロッパ', '北アメリカ'] },
+    { name: 'ドイツ', capital: 'ベルリン', region: ['ヨーロッパ'] },
+    { name: 'ノルウェー', capital: 'オスロ', region: ['ヨーロッパ'] },
+    { name: 'バチカン', capital: 'バチカン', region: ['ヨーロッパ'] },
+    { name: 'ハンガリー', capital: 'ブダペスト', region: ['ヨーロッパ'] },
+    { name: 'フィンランド', capital: 'ヘルシンキ', region: ['ヨーロッパ'] },
+    { name: 'フランス', capital: 'パリ', region: ['ヨーロッパ'] },
+    { name: 'ブルガリア', capital: 'ソフィア', region: ['ヨーロッパ'] },
+    { name: 'ベラルーシ', capital: 'ミンスク', region: ['ヨーロッパ'] },
+    { name: 'ベルギー', capital: 'ブリュッセル', region: ['ヨーロッパ'] },
+    { name: 'ポーランド', capital: 'ワルシャワ', region: ['ヨーロッパ'] },
+    { name: 'ボスニア・ヘルツェゴビナ', capital: 'サラエヴォ', region: ['ヨーロッパ'] },
+    { name: 'ポルトガル', capital: 'リスボン', region: ['ヨーロッパ', 'アフリカ'] },
+    { name: '北マケドニア', capital: 'スコピエ', region: ['ヨーロッパ'] },
+    { name: 'マルタ', capital: 'バレッタ', region: ['ヨーロッパ'] },
+    { name: 'モナコ', capital: 'モナコ', region: ['ヨーロッパ'] },
+    { name: 'モルドバ', capital: 'キシナウ', region: ['ヨーロッパ'] },
+    { name: 'モンテネグロ', capital: 'ポドゴリツァ', region: ['ヨーロッパ'] },
+    { name: 'ラトビア', capital: 'リガ', region: ['ヨーロッパ'] },
+    { name: 'リトアニア', capital: 'ヴィリニュス', region: ['ヨーロッパ'] },
+    { name: 'リヒテンシュタイン', capital: 'ファドゥーツ', region: ['ヨーロッパ'] },
+    { name: 'ルーマニア', capital: 'ブカレスト', region: ['ヨーロッパ'] },
+    { name: 'ルクセンブルク', capital: 'ルクセンブルク', region: ['ヨーロッパ'] },
+    { name: 'ロシア', capital: 'モスクワ', region: ['ヨーロッパ', 'アジア'] },
+    { name: 'アメリカ合衆国', capital: 'ワシントンD.C.', region: ['北アメリカ', 'ヨーロッパ', 'オセアニア'] },
+    { name: 'アンティグア・バーブーダ', capital: 'セントジョンズ', region: ['北アメリカ'] },
+    { name: 'エルサルバドル', capital: 'サンサルバドル', region: ['北アメリカ'] },
+    { name: 'カナダ', capital: 'オタワ', region: ['北アメリカ'] },
+    { name: 'キューバ', capital: 'ハバナ', region: ['北アメリカ'] },
+    { name: 'グアテマラ', capital: 'グアテマラシティ', region: ['北アメリカ'] },
+    { name: 'グレナダ', capital: 'セントジョージズ', region: ['北アメリカ'] },
+    { name: 'コスタリカ', capital: 'サン・ホセ', region: ['北アメリカ'] },
+    { name: 'ジャマイカ', capital: 'キングストン', region: ['北アメリカ'] },
+    { name: 'セントクリストファー・ネイビス', capital: 'バセテール', region: ['北アメリカ'] },
+    { name: 'セントビンセント・グレナディーン', capital: 'キングスタウン', region: ['北アメリカ'] },
+    { name: 'セントルシア', capital: 'カストリーズ', region: ['北アメリカ'] },
+    { name: 'ドミニカ共和国', capital: 'サントドミンゴ', region: ['北アメリカ'] },
+    { name: 'ドミニカ国', capital: 'ロゾー', region: ['北アメリカ'] },
+    { name: 'トリニダード・トバゴ', capital: 'ポートオブスペイン', region: ['北アメリカ'] },
+    { name: 'ニカラグア', capital: 'マナグア', region: ['北アメリカ'] },
+    { name: 'ハイチ', capital: 'ポルトープランス', region: ['北アメリカ'] },
+    { name: 'パナマ', capital: 'パナマ市', region: ['北アメリカ'] },
+    { name: 'バハマ', capital: 'ナッソー', region: ['北アメリカ'] },
+    { name: 'バルバドス', capital: 'ブリッジタウン', region: ['北アメリカ'] },
+    { name: 'ベリーズ', capital: 'ベルモパン', region: ['北アメリカ'] },
+    { name: 'ホンジュラス', capital: 'テグシガルパ', region: ['北アメリカ'] },
+    { name: 'メキシコ', capital: 'メキシコシティ', region: ['北アメリカ'] },
+    { name: 'アルゼンチン', capital: 'ブエノスアイレス', region: ['南アメリカ'] },
+    { name: 'ウルグアイ', capital: 'モンテビデオ', region: ['南アメリカ'] },
+    { name: 'エクアドル', capital: 'キト', region: ['南アメリカ'] },
+    { name: 'ガイアナ', capital: 'ジョージタウン', region: ['南アメリカ'] },
+    { name: 'コロンビア', capital: 'ボゴタ', region: ['南アメリカ'] },
+    { name: 'スリナム', capital: 'パラマリボ', region: ['南アメリカ'] },
+    { name: 'チリ', capital: 'サンティアゴ・デ・チレ', region: ['南アメリカ', 'オセアニア'] },
+    { name: 'パラグアイ', capital: 'アスンシオン', region: ['南アメリカ'] },
+    { name: 'ブラジル', capital: 'ブラジリア', region: ['南アメリカ'] },
+    { name: 'ベネズエラ', capital: 'カラカス', region: ['南アメリカ'] },
+    { name: 'ペルー', capital: 'リマ', region: ['南アメリカ'] },
+    { name: 'ボリビア', capital: 'ラパス', region: ['南アメリカ'] },
+    { name: 'オーストラリア', capital: 'キャンベラ', region: ['オセアニア', 'アジア'] },
+    { name: 'キリバス', capital: 'タラワ', region: ['オセアニア'] },
+    { name: 'サモア', capital: 'アピア', region: ['オセアニア'] },
+    { name: 'ソロモン諸島', capital: 'ホニアラ', region: ['オセアニア'] },
+    { name: 'ツバル', capital: 'フナフティ', region: ['オセアニア'] },
+    { name: 'トンガ', capital: 'ヌクアロファ', region: ['オセアニア'] },
+    { name: 'ナウル', capital: 'ヤレン', region: ['オセアニア'] },
+    { name: 'ニュージーランド', capital: 'ウェリントン', region: ['オセアニア'] },
+    { name: 'バヌアツ', capital: 'ポートビラ', region: ['オセアニア'] },
+    { name: 'パプアニューギニア', capital: 'ポートモレスビー', region: ['オセアニア'] },
+    { name: 'パラオ', capital: 'マルキョク', region: ['オセアニア'] },
+    { name: 'フィジー', capital: 'スバ', region: ['オセアニア'] },
+    { name: 'マーシャル諸島', capital: 'マジュロ', region: ['オセアニア'] },
+    { name: 'ミクロネシア', capital: 'パリキール', region: ['オセアニア'] },
+];
+
+const countryNameElement = document.getElementById('countryName');
+const lastQuizElement = document.getElementById('lastQuiz');
+const statisticsElement = document.getElementById('statistics');
+
+let quizNum = 0;
+let correctNum = 0;
+
+let selectCountry = undefined;
+
+function pushAnswer(answer, region = 'アフリカ') {
+    const correct = (answer === true && selectCountry.region.includes(region)) || (answer === false && !selectCountry.region.includes(region));
+
+    lastQuizElement.innerHTML = `
+        問題．「${selectCountry.name}」は？<br />
+        回答．「${answer ? `${region}である` : `${region}ではない`}」<br />
+        <span class="${correct ? 'green' : 'red'}_tc">正解．${selectCountry.region.map((item) => `「${item}」`).join('、')}</span>
+    `;
+
+    quizNum++;
+
+    if (correct) correctNum++;
+
+    setStatistics();
+    setNewQuiz();
+}
+
+function setStatistics() {
+    statisticsElement.innerHTML = `
+        問題数：${quizNum}<br />
+        正答率：${Math.round((correctNum / quizNum) * 100 * 100) / 100}%
+    `;
+}
+
+function setNewQuiz() {
+    const getRandomIndex = (array) => Math.floor(Math.random() * array.length);
+
+    const lastSelectCountry = selectCountry;
+
+    while (lastSelectCountry === selectCountry) selectCountry = countryData[getRandomIndex(countryData)];
+
+    countryNameElement.innerHTML = selectCountry.name;
+}
+
+setNewQuiz();
